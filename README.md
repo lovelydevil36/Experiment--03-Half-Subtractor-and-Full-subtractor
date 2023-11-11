@@ -51,56 +51,64 @@ RegisterNumber:  212222050001
 
 ## HALF SUBTRACTOR
 ```
-module halfsub(a,b,diff,borrow);
+module exp04(a,b,difference,borrow);
 input a,b;
-output diff,borrow;
-assign diff=a^b;
-assign borrow=(~a)&b;
+output difference,borrow;
+wire x;
+xor(difference,a,b);
+not(x,a);
+and(borrow,x,b);
 endmodule
 ```
 ## FULL SUBTRACTOR
 ```
-module fullsub(a,b,bin,diff,borrow);
+module FullSub04(a,b,bin,difference,borrow);
 input a,b,bin;
-output diff,borrow;
-assign diff=a^b^bin;
-assign borrow=((~a)&b)|(~(a^b))&bin;
+output difference,borrow;
+wire p;
+assign difference=((a^b)^bin);
+not (p,a);
+assign borrow=((p&b)|(p&bin)|(b&bin));
 endmodule
 ```
 ## RTL Diagram:
 
 ## HALF SUBTRACTOR
 
-![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/298db710-8ae0-46c7-bf92-af7696ae19d8)
+![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/5cca02ee-4d13-4488-9dad-a8271ba0eb41)
+
 
 
 ## FULL SUBTARCTOR
 
-![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/801f2d07-fd50-4eb4-84de-aadcd7474271)
+![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/237deb53-4873-465f-b113-cba492521063)
+
 
 
 ## Truthtable:
 
 ## HALF SUBTRACTOR
 
-![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/6f1255f0-33a6-4d49-8769-fbb0ee08ee50)
+![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/c0131042-7751-4360-bb40-a28b898fa6e7)
+
 
 
 ## FULL SUBTARCTOR
 
-![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/af7103e9-d05c-4410-a1ee-fc6fd62761de)
+![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/38fd7ea4-35df-4947-b64a-3ff5c68b6948)
 
 
 ## Output Waveform:
 
 ## HALF SUBTRACTOR
 
-![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/5c489faa-07dd-4f66-8df9-c53dca801fb6)
+![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/d256cdbc-791b-4136-a87b-82482d8144b5)
+
 
 
 ## FULL SUBTARCTOR
 
-![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/949cd7ff-3edf-4a25-9ac1-b56cabf7ced2)
+![image](https://github.com/lovelydevil36/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/123564624/d9a45370-3abe-4464-85b7-20e9eb2c2651)
 
 
 ## Result:
